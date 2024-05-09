@@ -15,15 +15,12 @@ const int switchPin = 8;  // Push switch connected to Pin 8 (Port B)
 void setup() {
   pinMode(ledPin, OUTPUT);   // LED pin as output
   pinMode(switchPin, INPUT_PULLUP);  // Switch pin as input with pull-up resistor
-
   // Enable Pin Change Interrupt for Port B (PCINT0-7)
   PCICR |= (1 << PCIE0);
   // Enable Pin Change Interrupt for Pin 8 (PCINT0)
   PCMSK0 |= (1 << PCINT0);
-
   // Enable interrupts
   sei();
-
   // Set sleep mode to Power Save mode
   set_sleep_mode(SLEEP_MODE_PWR_SAVE);
 }
